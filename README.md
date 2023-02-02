@@ -1,3 +1,3 @@
-# remove-nuxt-axios-and-update-projects-files
+# nuxt-wp
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/github-ajtlch)
+Nuxt.js and WordPress Post and Custom Post Type REST API
