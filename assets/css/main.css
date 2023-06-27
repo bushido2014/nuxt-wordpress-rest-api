@@ -601,6 +601,17 @@ textarea:focus {
 .footer-text {
   padding: 10px;
 }
+.code-wrapper {
+    padding: 25px 0;
+    margin-bottom: 10px;
+}
+.code-wrapper span {
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    margin: 0 7px;
+}
 @media only screen and (max-width: 992px) {
   .post-articles {
     grid-template-columns: repeat(1, 1fr);
