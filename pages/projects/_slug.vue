@@ -25,8 +25,8 @@
           class="mt-5 content"
           v-html="project.content.rendered"
         ></div>
-        <div v-if="project.acf.topics_tags" class="code-wrapper">
-    <span v-for="(tag, index) in project.acf.topics_tags" :key="index">
+        <div v-if="projects.length && projects[0].acf.topics_tags" class="code-wrapper">
+    <span v-for="(tag, index) in projects[0].acf.topics_tags" :key="index">
       {{ tag.topic_tag }}
     </span>
   </div>
