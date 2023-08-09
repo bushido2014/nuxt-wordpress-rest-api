@@ -25,11 +25,7 @@
           class="mt-5 content"
           v-html="project.content.rendered"
         ></div>
-        <div v-if="projects.length && projects[0].acf.topics_tags" class="code-wrapper">
-    <span v-for="(tag, index) in projects[0].acf.topics_tags" :key="index">
-      {{ tag.topic_tag }}
-    </span>
-  </div>
+       
       </div>
     </article>
   </div>
@@ -39,11 +35,8 @@
 export default {
   async asyncData({ params, error }) {
     const response = await fetch(
-      `${process.env.baseURL}/wp-json/wp/v2/projects/?slug=${params.slug}&_embed=1&_fields=acf,featured_media`
-    );
-    /*const response = await fetch(
       `${process.env.baseURL}/wp-json/wp/v2/projects/?slug=${params.slug}&_embed=1`
-    );*/
+    );
     const projects = await response.json();
 
     if (projects.length <= 0) {
