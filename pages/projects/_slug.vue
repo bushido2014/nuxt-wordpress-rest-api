@@ -25,7 +25,11 @@
           class="mt-5 content"
           v-html="project.content.rendered"
         ></div>
-       
+       <div class="code-wrapper" v-if="project.topics_tags">
+          <span v-for="(tag, index) in project.topics_tags" :key="index">
+            {{ tag.topic_tag }}
+          </span>
+        </div>
       </div>
     </article>
   </div>
@@ -39,6 +43,16 @@ export default {
     );
     const projects = await response.json();
 
+// Fetch ACF data from a separate URL
+    const acfResponse = await fetch(
+      `${process.env.baseURL}/wp-json/acf/v3/projects/${projects[0].id}`
+    );
+    const acfData = await acfResponse.json();
+
+    // Add ACF data to the project object
+    projects[0].topics_tags = acfData.acf.topics_tags;
+
+    
     if (projects.length <= 0) {
       return error({ statusCode: 404, message: 'Page not found' });
     }
